@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mokshith BA - Portfolio</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons (For UI elements) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Devicon (For Tech Stack & Brand Logos) -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+  />
+
+  <!-- Custom CSS File -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Tailwind Config Script -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans pt-16">
+
+  <!-- Navigation (Fixed White Background) -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-slate-950 shadow-sm border-b border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex-shrink-0 font-bold text-xl text-indigo-600 dark:text-indigo-400 font-mono tracking-tighter">
+          &lt;Mokshith/&gt;
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-center space-x-6">
+            <a href="#hero" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors text-sm uppercase tracking-wide">Home</a>
+            <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors text-sm uppercase tracking-wide">About</a>
+            <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors text-sm uppercase tracking-wide">Skills</a>
+            <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors text-sm uppercase tracking-wide">Projects</a>
+            <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors text-sm uppercase tracking-wide">Experience</a>
+            <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors text-sm uppercase tracking-wide">Contact</a>
+
+            <div class="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+
+            <a
+              href="https://drive.google.com/file/d/1hwoPyYnnhYevrpZ-xGUtZRzcXJkN1Xsk/view?usp=drivesdk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition-colors shadow-sm hover:shadow-md"
+            >
+              <i data-lucide="download" class="w-4 h-4"></i> Resume
+            </a>
+
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300"
+              aria-label="Toggle Dark Mode"
+            >
+              <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+              <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center gap-4">
+          <button
+            id="theme-toggle-mobile"
+            class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300"
+          >
+            <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+            <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+          </button>
+          <button
+            id="mobile-menu-btn"
+            class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+          >
+            <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden bg-white dark:bg-slate-900 shadow-lg absolute w-full px-4 pt-2 pb-6 flex flex-col space-y-2 border-t border-slate-100 dark:border-slate-800"
+    >
+      <a
+        href="#hero"
+        class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600"
+      >Home</a>
+      <a
+        href="#about"
+        class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600"
+      >About</a>
+      <a
+        href="#skills"
+        class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600"
+      >Skills</a>
+      <a
+        href="#projects"
+        class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600"
+      >Projects</a>
+      <a
+        href="#experience"
+        class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600"
+      >Experience</a>
+      <a
+        href="#contact"
+        class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800 hover:text-indigo-600"
+      >Contact</a>
+      <div class="pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
+        <a
+          href="https://drive.google.com/file/d/1hwoPyYnnhYevrpZ-xGUtZRzcXJkN1Xsk/view?usp=drivesdk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-indigo-600 text-white rounded-lg font-medium"
+        >
+          <i data-lucide="download" class="w-5 h-5"></i> Download Resume
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section
+    id="hero"
+    class="min-h-screen flex items-center justify-center pt-10 pb-12 relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950/30"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col-reverse lg:flex-row items-center justify-center gap-12 lg:gap-20">
+
+        <!-- Left Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <div
+            class="inline-block mb-4 px-4 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 font-bold text-sm shadow-sm animate-fade-in-up"
+          >
+            Hello World!
+          </div>
+          <h1
+            class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight animate-fade-in-up delay-100 leading-tight"
+          >
+            I'm
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-400">
+              Mokshith BA
+            </span>
+          </h1>
+          <p
+            class="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-in-up delay-200 leading-relaxed"
+          >
+            Aspiring Engineer with a passion for Web Development and Artificial Intelligence.
+          </p>
+
+          <!-- Contact Links with BRAND LOGOS (Updated Email Icon Fit) -->
+          <div
+            class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10 animate-fade-in-up delay-300"
+          >
+            <!-- Email -->
+            <a
+              href="mailto:mokshithba85@gmail.com"
+              class="flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 border border-slate-100 dark:border-slate-700 group"
+            >
+              <div
+                class="w-8 h-8 flex-shrink-0 rounded-full overflow-hidden border border-slate-100 dark:border-slate-600 bg-white flex items-center justify-center"
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmvBDVrWuIi8FBzBOXybue2OoHIgzNWo4AOA&s"
+                  alt="Email Icon"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                >
+              </div>
+              <span class="font-semibold text-sm">Email</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/mokshith06"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 border border-slate-100 dark:border-slate-700 group"
+            >
+              <div
+                class="p-1.5 bg-blue-50 dark:bg-blue-900/30 rounded-full text-blue-600 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors"
+              >
+                <i class="devicon-linkedin-plain text-lg"></i>
+              </div>
+              <span class="font-semibold text-sm">LinkedIn</span>
+            </a>
+
+            <!-- GitHub -->
+            <a
+              href="https://github.com/mokshithba85-eng"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 border border-slate-100 dark:border-slate-700 group"
+            >
+              <div
+                class="p-1.5 bg-slate-100 dark:bg-slate-700 rounded-full text-slate-900 dark:text-slate-100 group-hover:bg-slate-200 dark:group-hover:bg-slate-600 transition-colors"
+              >
+                <i class="devicon-github-original text-lg"></i>
+              </div>
+              <span class="font-semibold text-sm">GitHub</span>
+            </a>
+
+            <!-- Phone -->
+            <div
+              class="flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow-md text-slate-700 dark:text-slate-200 border border-slate-100 dark:border-slate-700 group"
+            >
+              <div
+                class="w-8 h-8 flex-shrink-0 rounded-full overflow-hidden border border-slate-100 dark:border-slate-600 bg-white flex items-center justify-center p-[2px]"
+              >
+                <img
+                  src="https://freepngimg.com/save/75358-mobile-money-telephone-call-phones-bank-gmail/1000x1000"
+                  alt="Phone Icon"
+                  class="w-full h-full object-contain group-hover:scale-110 transition-transform"
+                >
+              </div>
+              <span class="font-semibold text-sm">+91-8050340467</span>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in-up delay-300"
+          >
+            <a
+              href="#projects"
+              class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-all shadow-lg hover:shadow-indigo-500/25 flex items-center justify-center gap-2"
+            >
+              View My Projects <i data-lucide="briefcase" class="w-5 h-5"></i>
+            </a>
+            <a
+              href="#about"
+              class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2"
+            >
+              More About Me <i data-lucide="user" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Content (Profile Image) -->
+        <div
+          class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 flex-shrink-0 animate-fade-in-up"
+        >
+          <div
+            class="absolute inset-0 bg-indigo-600 rounded-full blur-2xl opacity-20 dark:opacity-40 animate-pulse-slow"
+          ></div>
+          <div
+            class="absolute -top-4 -right-4 w-20 h-20 bg-blue-400 rounded-full blur-xl opacity-30"
+          ></div>
+          <div
+            class="absolute -bottom-4 -left-4 w-20 h-20 bg-indigo-400 rounded-full blur-xl opacity-30"
+          ></div>
+
+          <div
+            class="relative w-full h-full rounded-full border-4 border-white dark:border-slate-800 shadow-2xl overflow-hidden group"
+          >
+            <img
+              src="https://res.cloudinary.com/dsfprghhu/image/upload/v1761125818/WhatsApp_Image_2025-10-22_at_15.06.48_6a9237de_nrblsb.jpg"
+              alt="Mokshith BA"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onerror="this.src='https://ui-avatars.com/api/?name=Mokshith+BA&background=4f46e5&color=fff&size=512'"
+            >
+            <div
+              class="absolute inset-0 bg-indigo-900/10 dark:bg-indigo-900/20 group-hover:opacity-0 transition-opacity duration-300"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white dark:bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium text-sm mb-4"
+          >
+            <i data-lucide="user" class="w-4 h-4"></i> About Me
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+            Driven by Data, <br class="hidden md:block" /> Powered by Intelligence.
+          </h2>
+          <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+            I am currently pursuing a B.E. in Artificial Intelligence and Data Science at
+            Nitte Meenakshi Institute of Technology, Bangalore. With a strong academic record (9.5
+            CGPA) and practical experience in the MERN stack and Python, I enjoy building scalable
+            web applications and exploring Generative AI solutions. I am a proactive learner with a
+            knack for problem-solving and debugging.
+          </p>
+
+          <h3
+            class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2"
+          >
+            <i data-lucide="graduation-cap" class="w-6 h-6 text-indigo-600"></i> Education
+          </h3>
+          <div class="space-y-6">
+            <!-- Education Items -->
+            <div
+              class="relative pl-6 border-l-2 border-indigo-100 dark:border-slate-800"
+            >
+              <div
+                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white dark:border-slate-950"
+              ></div>
+              <h4 class="font-bold text-slate-900 dark:text-white">
+                Nitte Meenakshi Institute of Technology, Bangalore
+              </h4>
+              <p
+                class="text-indigo-600 dark:text-indigo-400 font-medium text-sm"
+              >
+                B.E. in Artificial Intelligence and Data Science
+              </p>
+              <div
+                class="flex justify-between items-center mt-1 text-slate-500 dark:text-slate-400 text-sm"
+              >
+                <span>Aug 2023 - Jul 2027</span>
+                <span
+                  class="font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded"
+                >CGPA: 9.50</span>
+              </div>
+            </div>
+
+            <div
+              class="relative pl-6 border-l-2 border-indigo-100 dark:border-slate-800"
+            >
+              <div
+                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white dark:border-slate-950"
+              ></div>
+              <h4 class="font-bold text-slate-900 dark:text-white">
+                Sri BGS PU College, Chikkamaglur
+              </h4>
+              <p
+                class="text-indigo-600 dark:text-indigo-400 font-medium text-sm"
+              >
+                Senior Secondary Education (PCMB)
+              </p>
+              <div
+                class="flex justify-between items-center mt-1 text-slate-500 dark:text-slate-400 text-sm"
+              >
+                <span>Jun 2021 - Apr 2023</span>
+                <span
+                  class="font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded"
+                >95.3%</span>
+              </div>
+            </div>
+
+            <div
+              class="relative pl-6 border-l-2 border-indigo-100 dark:border-slate-800"
+            >
+              <div
+                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white dark:border-slate-950"
+              ></div>
+              <h4 class="font-bold text-slate-900 dark:text-white">
+                Kuvempu Vidyaniketan (ICSE), Chikkamaglur
+              </h4>
+              <p
+                class="text-indigo-600 dark:text-indigo-400 font-medium text-sm"
+              >
+                Secondary Education
+              </p>
+              <div
+                class="flex justify-between items-center mt-1 text-slate-500 dark:text-slate-400 text-sm"
+              >
+                <span>Jun 2009 - Apr 2021</span>
+                <span
+                  class="font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded"
+                >94.3%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <!-- Certifications -->
+          <div
+            class="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm"
+          >
+            <h3
+              class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2"
+            >
+              <i data-lucide="award" class="w-6 h-6 text-indigo-600"></i> Certifications
+            </h3>
+            <div class="grid gap-4">
+              <div
+                class="flex items-start gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+              >
+                <div class="mt-1 min-w-[6px] h-[6px] rounded-full bg-indigo-500"></div>
+                <div>
+                  <h4
+                    class="font-semibold text-slate-800 dark:text-slate-200 text-sm"
+                  >Node JS</h4>
+                  <div
+                    class="flex gap-2 text-xs text-slate-500 dark:text-slate-400 mt-1"
+                  >
+                    <span>Nxtwave</span> • <span>2025</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+              >
+                <div class="mt-1 min-w-[6px] h-[6px] rounded-full bg-indigo-500"></div>
+                <div>
+                  <h4
+                    class="font-semibold text-slate-800 dark:text-slate-200 text-sm"
+                  >Developer Foundation</h4>
+                  <div
+                    class="flex gap-2 text-xs text-slate-500 dark:text-slate-400 mt-1"
+                  >
+                    <span>Nxtwave</span> • <span>2025</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+              >
+                <div class="mt-1 min-w-[6px] h-[6px] rounded-full bg-indigo-500"></div>
+                <div>
+                  <h4
+                    class="font-semibold text-slate-800 dark:text-slate-200 text-sm"
+                  >Introduction to Databases</h4>
+                  <div
+                    class="flex gap-2 text-xs text-slate-500 dark:text-slate-400 mt-1"
+                  >
+                    <span>Nxtwave</span> • <span>2024</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+              >
+                <div class="mt-1 min-w-[6px] h-[6px] rounded-full bg-indigo-500"></div>
+                <div>
+                  <h4
+                    class="font-semibold text-slate-800 dark:text-slate-200 text-sm"
+                  >Programming Foundation with Python</h4>
+                  <div
+                    class="flex gap-2 text-xs text-slate-500 dark:text-slate-400 mt-1"
+                  >
+                    <span>Nxtwave</span> • <span>2024</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+              >
+                <div class="mt-1 min-w-[6px] h-[6px] rounded-full bg-indigo-500"></div>
+                <div>
+                  <h4
+                    class="font-semibold text-slate-800 dark:text-slate-200 text-sm"
+                  >Build your own dynamic website</h4>
+                  <div
+                    class="flex gap-2 text-xs text-slate-500 dark:text-slate-400 mt-1"
+                  >
+                    <span>Nxtwave</span> • <span>2024</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+              >
+                <div class="mt-1 min-w-[6px] h-[6px] rounded-full bg-indigo-500"></div>
+                <div>
+                  <h4
+                    class="font-semibold text-slate-800 dark:text-slate-200 text-sm"
+                  >Build your own static website</h4>
+                  <div
+                    class="flex gap-2 text-xs text-slate-500 dark:text-slate-400 mt-1"
+                  >
+                    <span>Nxtwave</span> • <span>2024</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Extracurriculars -->
+          <div
+            class="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-8 border border-indigo-100 dark:border-indigo-900/30 shadow-sm relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-indigo-100 dark:bg-indigo-800/20 rounded-full blur-2xl"
+            ></div>
+            <h3
+              class="text-xl font-bold mb-6 flex items-center gap-2 relative z-10 text-slate-900 dark:text-white"
+            >
+              <i data-lucide="trophy" class="w-6 h-6 text-indigo-600 dark:text-indigo-400"></i>
+              Extracurriculars
+            </h3>
+            <ul class="space-y-3 relative z-10">
+              <li
+                class="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-sm"
+              >
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 bg-indigo-500 rounded-full flex-shrink-0"
+                ></span>
+                Technical Lead of Datawiz Club, NMIT
+              </li>
+              <li
+                class="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-sm"
+              >
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 bg-indigo-500 rounded-full flex-shrink-0"
+                ></span>
+                Participant in ODOO X NMIT pan India hackathon
+              </li>
+              <li
+                class="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-sm"
+              >
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 bg-indigo-500 rounded-full flex-shrink-0"
+                ></span>
+                Kabaddi Player, NMIT Kabaddi Team (State Level)
+              </li>
+              <li
+                class="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-sm"
+              >
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 bg-indigo-500 rounded-full flex-shrink-0"
+                ></span>
+                Organizer of Inter-collegiate sports fest (2024-2025)
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-slate-50 dark:bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium text-sm mb-4"
+        >
+          <i data-lucide="code" class="w-4 h-4"></i> Technical Proficiency
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+          My Tech Stack
+        </h2>
+        <div class="w-20 h-1 bg-indigo-600 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Languages & Core -->
+        <div
+          class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-all duration-300 group"
+        >
+          <div
+            class="p-6 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i data-lucide="code" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Languages & Core
+            </h3>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-3">
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-800"
+              >
+                <i class="devicon-java-plain colored text-lg"></i> Java
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800"
+              >
+                <i class="devicon-cplusplus-plain colored text-lg"></i> C++
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-800"
+              >
+                <i class="devicon-python-plain colored text-lg"></i> Python
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-800"
+              >
+                <i class="devicon-javascript-plain colored text-lg"></i> JavaScript
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
+              >
+                <i class="devicon-mysql-plain colored text-lg"></i> DBMS
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
+              >
+                <i data-lucide="box" class="w-3.5 h-3.5"></i> OOPs
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Technologies -->
+        <div
+          class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-all duration-300 group"
+        >
+          <div
+            class="p-6 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i data-lucide="globe" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Web Technologies
+            </h3>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-3">
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800"
+              >
+                <i class="devicon-react-original colored text-lg"></i> React JS
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
+              >
+                <i class="devicon-nodejs-plain colored text-lg"></i> Node JS
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800"
+              >
+                <i class="devicon-html5-plain colored text-lg"></i> HTML
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800"
+              >
+                <i class="devicon-css3-plain colored text-lg"></i> CSS
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
+              >
+                <i data-lucide="layers" class="w-3.5 h-3.5"></i> MERN Stack
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
+              >
+                <i class="devicon-mongodb-plain colored text-lg"></i> MongoDB
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Emerging Tech -->
+        <div
+          class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-all duration-300 group"
+        >
+          <div
+            class="p-6 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Tools & Emerging Tech
+            </h3>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-3">
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
+              >
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i> Generative AI
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800"
+              >
+                <i class="devicon-figma-plain colored text-lg"></i> Figma
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800"
+              >
+                <i class="devicon-git-plain colored text-lg"></i> Git
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
+              >
+                <i data-lucide="bug" class="w-3.5 h-3.5"></i> Debugging
+              </div>
+              <div
+                class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-semibold transition-transform hover:scale-105 cursor-default bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
+              >
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> Time Management
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white dark:bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium text-sm mb-4"
+        >
+          <i data-lucide="terminal" class="w-4 h-4"></i> Portfolio
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+          Featured Projects
+        </h2>
+        <div class="w-20 h-1 bg-indigo-600 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Project 1 -->
+        <a
+          href="https://github.com/mokshithba85-eng/AgriCure"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-col bg-slate-50 dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+        >
+          <div class="h-48 relative overflow-hidden bg-slate-200 dark:bg-slate-800">
+            <img
+              src="https://res.cloudinary.com/dsfprghhu/image/upload/v1761233870/WhatsApp_Image_2025-10-23_at_21.07.29_b67f57ca_soqbwu.jpg"
+              alt="AgriCure App"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            >
+            <div
+              class="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-700"
+            >
+              <i
+                data-lucide="code"
+                class="w-16 h-16 text-slate-400 dark:text-slate-500 opacity-50"
+              ></i>
+            </div>
+            <div
+              class="absolute inset-0 bg-indigo-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
+            >
+              <div
+                class="p-3 bg-white text-slate-900 rounded-full transform hover:scale-110 shadow-lg"
+              >
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                >AgriCure App</h3>
+              </div>
+              <div
+                class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-3 uppercase tracking-wider flex items-center gap-1"
+              >
+                <i data-lucide="zap" class="w-3 h-3 fill-current"></i> MERN Stack, Generative AI
+              </div>
+              <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                A mobile application designed to support farmers with crop management, weather
+                updates, and real-time market insights. Features a marketplace for selling produce
+                and comparing prices to boost farmer income by 25-30%.
+              </p>
+            </div>
+            <div
+              class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2"
+            >
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#MERN Stack</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#GenAI</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#Mobile App</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#Marketplace</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 2 -->
+        <a
+          href="https://github.com/mokshithba85-eng/crispy-Cut-static-website"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-col bg-slate-50 dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+        >
+          <div class="h-48 relative overflow-hidden bg-slate-200 dark:bg-slate-800">
+            <img
+              src="https://res.cloudinary.com/dsfprghhu/image/upload/v1761234079/WhatsApp_Image_2025-10-23_at_21.11.00_54f7e4ef_or5u5n.jpg"
+              alt="Crispy Cuts"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            >
+            <div
+              class="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-700"
+            >
+              <i
+                data-lucide="code"
+                class="w-16 h-16 text-slate-400 dark:text-slate-500 opacity-50"
+              ></i>
+            </div>
+            <div
+              class="absolute inset-0 bg-indigo-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
+            >
+              <div
+                class="p-3 bg-white text-slate-900 rounded-full transform hover:scale-110 shadow-lg"
+              >
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                >Crispy Cuts</h3>
+              </div>
+              <div
+                class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-3 uppercase tracking-wider flex items-center gap-1"
+              >
+                <i data-lucide="zap" class="w-3 h-3 fill-current"></i> HTML, CSS, Figma, Bootstrap
+              </div>
+              <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                A responsive restaurant website featuring an interactive food menu with categorized
+                dishes and booking options. Focused on clean UI design and smooth navigation across
+                devices.
+              </p>
+            </div>
+            <div
+              class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2"
+            >
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#HTML</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#CSS</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#Bootstrap</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#Figma</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#UI/UX</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 3 -->
+        <a
+          href="https://github.com/mokshithba85-eng/wikipedia-like-app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-col bg-slate-50 dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+        >
+          <div class="h-48 relative overflow-hidden bg-slate-200 dark:bg-slate-800">
+            <img
+              src="https://res.cloudinary.com/dsfprghhu/image/upload/v1761234210/WhatsApp_Image_2025-10-23_at_21.13.16_22b98139_uip1n7.jpg"
+              alt="Wikipedia Like App"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            >
+            <div
+              class="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-700"
+            >
+              <i
+                data-lucide="code"
+                class="w-16 h-16 text-slate-400 dark:text-slate-500 opacity-50"
+              ></i>
+            </div>
+            <div
+              class="absolute inset-0 bg-indigo-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
+            >
+              <div
+                class="p-3 bg-white text-slate-900 rounded-full transform hover:scale-110 shadow-lg"
+              >
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                >Wikipedia Like App</h3>
+              </div>
+              <div
+                class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-3 uppercase tracking-wider flex items-center gap-1"
+              >
+                <i data-lucide="zap" class="w-3 h-3 fill-current"></i> HTML, CSS, JavaScript
+              </div>
+              <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                A web application allowing users to search for and read Wikipedia articles through a
+                simple, interactive interface. Prioritizes quick access to information with a clean
+                design.
+              </p>
+            </div>
+            <div
+              class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2"
+            >
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#HTML</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#CSS</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#JavaScript</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#API Integration</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 4 -->
+        <a
+          href="https://github.com/mokshithba85-eng/reachinbox-ai-onebox"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-col bg-slate-50 dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+        >
+          <div class="h-48 relative overflow-hidden bg-slate-200 dark:bg-slate-800">
+            <img
+              src="https://res.cloudinary.com/dsfprghhu/image/upload/v1761233733/WhatsApp_Image_2025-10-23_at_21.05.21_87b5ecd3_j820up.jpg"
+              alt="ReachInbox AI Onebox"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            >
+            <div
+              class="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-700"
+            >
+              <i
+                data-lucide="code"
+                class="w-16 h-16 text-slate-400 dark:text-slate-500 opacity-50"
+              ></i>
+            </div>
+            <div
+              class="absolute inset-0 bg-indigo-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
+            >
+              <div
+                class="p-3 bg-white text-slate-900 rounded-full transform hover:scale-110 shadow-lg"
+              >
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                >ReachInbox AI Onebox</h3>
+              </div>
+              <div
+                class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-3 uppercase tracking-wider flex items-center gap-1"
+              >
+                <i data-lucide="zap" class="w-3 h-3 fill-current"></i> Node.js, TypeScript, AI
+              </div>
+              <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                An AI-powered email management system that syncs Gmail inboxes and categorizes
+                messages automatically. Integrates IMAP, Elasticsearch, and intelligent tagging.
+              </p>
+            </div>
+            <div
+              class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2"
+            >
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#Node.js</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#TypeScript</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#Elasticsearch</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#Gemini API</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 5 -->
+        <a
+          href="https://github.com/mokshithba85-eng/examtimetable"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-col bg-slate-50 dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+        >
+          <div class="h-48 relative overflow-hidden bg-slate-200 dark:bg-slate-800">
+            <img
+              src="https://res.cloudinary.com/dsfprghhu/image/upload/v1761234296/WhatsApp_Image_2025-10-23_at_21.14.42_6ba1dabe_ycr2xy.jpg"
+              alt="StudySync"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            >
+            <div
+              class="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-700"
+            >
+              <i
+                data-lucide="code"
+                class="w-16 h-16 text-slate-400 dark:text-slate-500 opacity-50"
+              ></i>
+            </div>
+            <div
+              class="absolute inset-0 bg-indigo-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
+            >
+              <div
+                class="p-3 bg-white text-slate-900 rounded-full transform hover:scale-110 shadow-lg"
+              >
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4">
+              <div class="flex justify-between items-start">
+                <h3
+                  class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                >StudySync</h3>
+              </div>
+              <div
+                class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-3 uppercase tracking-wider flex items-center gap-1"
+              >
+                <i data-lucide="zap" class="w-3 h-3 fill-current"></i> HTML, CSS, JavaScript
+              </div>
+              <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                A simple and interactive Exam Timetable web app that helps students organize and
+                view their upcoming exams easily. Provides a clean layout with responsive design.
+              </p>
+            </div>
+            <div
+              class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2"
+            >
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#HTML</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#CSS</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#JavaScript</span>
+              <span
+                class="text-xs font-medium px-2 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
+              >#Responsive</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-slate-50 dark:bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium text-sm mb-4"
+        >
+          <i data-lucide="briefcase" class="w-4 h-4"></i> Career
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+          Experience
+        </h2>
+        <div class="w-20 h-1 bg-indigo-600 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="max-w-3xl mx-auto">
+        <div class="relative pl-8 md:pl-0">
+          <div
+            class="hidden md:block absolute left-[20px] top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-800"
+          ></div>
+
+          <div class="md:flex gap-8 group">
+            <div class="hidden md:flex flex-col items-center">
+              <div
+                class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg z-10 group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="briefcase" class="w-5 h-5"></i>
+              </div>
+              <div class="flex-1 w-0.5 bg-slate-200 dark:bg-slate-800 my-2"></div>
+            </div>
+
+            <div
+              class="flex-1 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow mb-8 relative"
+            >
+              <div class="md:hidden absolute -left-4 top-8 w-4 h-0.5 bg-indigo-600"></div>
+              <div
+                class="md:hidden absolute -left-[22px] top-[26px] w-4 h-4 rounded-full bg-indigo-600"
+              ></div>
+
+              <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4"
+              >
+                <div>
+                  <h3
+                    class="text-xl font-bold text-slate-900 dark:text-white"
+                  >Web Developer Intern</h3>
+                  <div
+                    class="text-indigo-600 dark:text-indigo-400 font-semibold"
+                  >SkillCraft Technologies</div>
+                </div>
+                <span
+                  class="inline-block mt-2 sm:mt-0 px-3 py-1 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 rounded-full text-xs font-medium"
+                >
+                  1 Month
+                </span>
+              </div>
+
+              <ul class="space-y-2">
+                <li
+                  class="flex items-start text-slate-600 dark:text-slate-300 text-sm"
+                >
+                  <span
+                    class="mr-2 mt-1.5 w-1.5 h-1.5 bg-indigo-400 rounded-full flex-shrink-0"
+                  ></span>
+                  Completed an intensive internship program focused on modern web development
+                  practices.
+                </li>
+                <li
+                  class="flex items-start text-slate-600 dark:text-slate-300 text-sm"
+                >
+                  <span
+                    class="mr-2 mt-1.5 w-1.5 h-1.5 bg-indigo-400 rounded-full flex-shrink-0"
+                  ></span>
+                  Gained hands-on experience in building responsive web interfaces.
+                </li>
+                <li
+                  class="flex items-start text-slate-600 dark:text-slate-300 text-sm"
+                >
+                  <span
+                    class="mr-2 mt-1.5 w-1.5 h-1.5 bg-indigo-400 rounded-full flex-shrink-0"
+                  ></span>
+                  Collaborated with the team to understand real-world development workflows.
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-slate-50 dark:bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Left Column -->
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+            Let's Chat
+          </h2>
+          <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-10">
+            I am approachable and responsive. Whether you have a question about my research,
+            a project proposal, or just want to connect, feel free to reach out.
+          </p>
+
+          <div class="space-y-6">
+            <!-- Email Block -->
+            <a
+              href="mailto:mokshithba85@gmail.com"
+              class="flex items-center gap-4 group p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md transition-all"
+            >
+              <div
+                class="w-12 h-12 flex-shrink-0 rounded-full overflow-hidden border border-slate-100 dark:border-slate-600 bg-white flex items-center justify-center p-[2px]"
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmvBDVrWuIi8FBzBOXybue2OoHIgzNWo4AOA&s"
+                  alt="Email Icon"
+                  class="w-full h-full object-contain group-hover:scale-110 transition-transform"
+                >
+              </div>
+              <div>
+                <p
+                  class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider mb-1"
+                >Email</p>
+                <span
+                  class="text-slate-900 dark:text-white font-medium"
+                >mokshithba85@gmail.com</span>
+              </div>
+            </a>
+
+            <!-- LinkedIn Block -->
+            <a
+              href="https://www.linkedin.com/in/mokshith06"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-4 group p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform"
+              >
+                <i class="devicon-linkedin-plain text-xl"></i>
+              </div>
+              <div>
+                <p
+                  class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider mb-1"
+                >LinkedIn</p>
+                <span
+                  class="text-slate-900 dark:text-white font-medium"
+                >linkedin.com/in/mokshith06</span>
+              </div>
+            </a>
+
+            <!-- GitHub Block -->
+            <a
+              href="https://github.com/mokshithba85-eng"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-4 group p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center text-slate-900 dark:text-white group-hover:scale-110 transition-transform"
+              >
+                <i class="devicon-github-original text-xl"></i>
+              </div>
+              <div>
+                <p
+                  class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider mb-1"
+                >GitHub</p>
+                <span
+                  class="text-slate-900 dark:text-white font-medium"
+                >github.com/mokshithba85-eng</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column - Form -->
+        <div
+          class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-100 dark:border-slate-700"
+        >
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label
+                htmlFor="name"
+                class="block text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2"
+              >Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your Name"
+                class="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                class="block text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2"
+              >Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your.email@example.com"
+                class="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                class="block text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2"
+              >Message</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="4"
+                placeholder="How can we collaborate?"
+                class="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-none"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-indigo-500/25"
+            >
+              Send Message <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer
+    class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800"
+  >
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+        Let's Connect
+      </h2>
+      <div class="flex justify-center gap-6 mb-8">
+        <a
+          href="mailto:mokshithba85@gmail.com"
+          class="p-3 bg-slate-50 dark:bg-slate-900 rounded-full text-slate-600 dark:text-slate-400 hover:bg-indigo-50 hover:text-indigo-600 transition-colors border border-slate-200 dark:border-slate-800"
+        >
+          <i data-lucide="mail" class="w-6 h-6"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/mokshith06"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-3 bg-slate-50 dark:bg-slate-900 rounded-full text-slate-600 dark:text-slate-400 hover:bg-indigo-50 hover:text-indigo-600 transition-colors border border-slate-200 dark:border-slate-800"
+        >
+          <i class="devicon-linkedin-plain text-xl"></i>
+        </a>
+        <a
+          href="https://github.com/mokshithba85-eng"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-3 bg-slate-50 dark:bg-slate-900 rounded-full text-slate-600 dark:text-slate-400 hover:bg-indigo-50 hover:text-indigo-600 transition-colors border border-slate-200 dark:border-slate-800"
+        >
+          <i class="devicon-github-original text-xl"></i>
+        </a>
+      </div>
+      <p class="text-slate-500 dark:text-slate-500 text-sm">
+        © <span id="year"></span> Mokshith BA. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
